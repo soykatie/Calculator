@@ -1,4 +1,4 @@
-using Calculator;
+using static Calculator.Calculator;
 
 namespace CalculatorTests
 {

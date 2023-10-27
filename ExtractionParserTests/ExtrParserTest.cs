@@ -1,4 +1,4 @@
-using Calculator;
+using static Calculator.Calculator;
 
 namespace ExtractionParserTests
 {
@@ -16,6 +16,7 @@ namespace ExtractionParserTests
         [TestCase("cc21", ExpectedResult = true)]
         [TestCase("007", ExpectedResult = true)]
         [TestCase("-007", ExpectedResult = true)]
+
         [TestCase("2+*3-4*5", ExpectedResult = false)]
         [TestCase("100/10-20*6+/", ExpectedResult = false)]
         [TestCase("a*/6+4", ExpectedResult = false)]
@@ -24,6 +25,9 @@ namespace ExtractionParserTests
         [TestCase("+-", ExpectedResult = false)]
         [TestCase("--100", ExpectedResult = false)]
         [TestCase("300+21cc. -6", ExpectedResult = false)]
+        [TestCase("(1100+(5+6*10)&13)*2", ExpectedResult = false)]
+        [TestCase("678*12*(23+15-9*0", ExpectedResult = false)]
+        [TestCase("p9086+12  5", ExpectedResult = false)]
         public bool IsValidExpression_ValidExpression_ReturnsCorrectResult(string expression)
         {
             ExpressionParser parser = new ExpressionParser();

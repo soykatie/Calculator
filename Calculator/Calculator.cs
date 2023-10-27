@@ -213,6 +213,10 @@ public static class Calculator
             if (index < expression.Length && (expression[index] == '*' || expression[index] == '/'))
             {
                 index++;
+                if (index < expression.Length && (Calculator.IsOperator(expression[index])))
+                {
+                    throw exception;
+                }
                 ParseTerm();
             }
         }
