@@ -164,7 +164,7 @@ public static class Calculator
     {
         private string expression;
         private int index;
-        Exception exception = new Exception("ERROR");
+        private static readonly Exception exception = new Exception("ERROR");
 
         private void SkipSpaces()
         {
